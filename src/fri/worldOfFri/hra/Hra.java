@@ -66,7 +66,6 @@ public class Hra {
         System.out.println("World of FRI je nova, neuveritelne nudna adventura.");
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
-        System.out.print("Teraz si v miestnosti ");
         this.hrac.getAktualnaMiestnost().vypisInfo();
     }
 
@@ -220,5 +219,5 @@ public class Hra {
         
         String menoPredmetu = prikaz.getParameter();
         this.hrac.pouzi(menoPredmetu);
-        }  
+    }  
 }

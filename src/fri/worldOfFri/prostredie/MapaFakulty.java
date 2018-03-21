@@ -5,7 +5,6 @@
  */
 package fri.worldOfFri.prostredie;
 
-import fri.worldOfFri.predmety.Predmet;
 import fri.worldOfFri.predmety.Hodinky;
 import fri.worldOfFri.predmety.Kluc;
 
@@ -23,52 +22,35 @@ public class MapaFakulty {
     public MapaFakulty() {
         
         // vytvorenie miestnosti
-        Miestnost terasa = new Miestnost("terasa","tu byva fri fest");
-        Miestnost bufet = new Miestnost("bufet","tu byva jedlo");
-        Miestnost labakB2 = new Miestnost("labakB2","tu byva ticho");
-        Miestnost chodbaB = new Miestnost("chodbaB","tu byva automat na kavu");
-        Miestnost chodbaA = new Miestnost("chodbaA","tu byva automat na kavu");
-        Miestnost labakA12 = new Miestnost("labakA12","tu byva cudna tabula");
-        Miestnost ic = new Miestnost("IC","tu byvaju knihy");
-        Miestnost chillZone = new Miestnost("chill zone","tu byva vela studentov");
-        Miestnost vratnica = new Miestnost("vratnica","tu byva vratnicka");
-        Miestnost dekanat = new Miestnost("dekanat","tu byva dekan");
+        Miestnost terasa = new Miestnost("terasa", "tu byva fri fest");
+        Miestnost bufet = new Miestnost("bufet", "tu byva jedlo");
+        Miestnost labakB2 = new Miestnost("labakB2", "tu byva ticho");
+        Miestnost chodbaB = new Miestnost("chodbaB", "tu byva automat na kavu");
+        Miestnost chodbaA = new Miestnost("chodbaA", "tu byva automat na kavu");
+        Miestnost labakA12 = new Miestnost("labakA12", "tu byva cudna tabula");
+        Miestnost ic = new Miestnost("IC", "tu byvaju knihy");
+        Miestnost chillZone = new Miestnost("chill zone", "tu byva vela studentov");
+        Miestnost vratnica = new Miestnost("vratnica", "tu byva vratnicka");
+        Miestnost dekanat = new Miestnost("dekanat", "tu byva dekan");
         
-        // inicializacia miestnosti = nastavenie vychodov
-        vratnica.nastavVychod("chodbaB", chodbaB);
-        vratnica.nastavVychod("IC", ic);
-        vratnica.nastavVychod("chodbaA", chodbaA);
-        vratnica.nastavVychod("terasa", terasa);
+        // inicializacia miestnosti = nastavenie dveri
+        Dvere dvereTerasaVratnica = new Dvere(terasa, vratnica);
+        Dvere dvereChodbaBVratnica = new Dvere(chodbaB, vratnica);
+        Dvere dvereChodbaAVratnica = new Dvere(chodbaA, vratnica);
         
-        terasa.nastavVychod("vratnica", vratnica);
-        Kluc klucIC = new Kluc("kluc","otvara IC");
-   
+        Kluc klucIC = new Kluc("kluc", "otvara IC");
         DvereNaKluc dvereVratnicaIC = new DvereNaKluc(ic, vratnica);
         klucIC.pridajDvere(dvereVratnicaIC);
         terasa.spawn(klucIC);
         
         terasa.spawn(new Hodinky());
         
-        chodbaA.nastavVychod("vratnica", vratnica);
-        chodbaA.nastavVychod("dekanat", dekanat);
-        chodbaA.nastavVychod("labakA12", labakA12);
-        chodbaA.nastavVychod("bufet", bufet);
-        
-        bufet.nastavVychod("chodbaA", chodbaA);
-        
-        dekanat.nastavVychod("chodbaA", chodbaA);
-        
-        labakA12.nastavVychod("chodbaA", chodbaA);
-        
-        chodbaB.nastavVychod("chillZone", chillZone);
-        chodbaB.nastavVychod("vratnica", vratnica);
-        chodbaB.nastavVychod("labakB2", labakB2);
-        
-        chillZone.nastavVychod("chodbaB", chodbaB);
-        vratnica.nastavVychod("chodbaB", chodbaB);
-        labakB2.nastavVychod("chodbaB", chodbaB);
-        
-        Dvere dvereTerasaVratnica = new Dvere(terasa, vratnica);
+        Dvere dvereChodbaADekanat = new Dvere(chodbaA, dekanat);
+        Dvere dvereChodbaAlabakA12 = new Dvere(chodbaA, labakA12);
+        Dvere dvereChodbaAbufet = new Dvere(chodbaA, bufet);
+        Dvere dvereChodbaBchillZone = new Dvere(chodbaB, chillZone);
+        Dvere dvereChodbaBlabakB2 = new Dvere(chodbaB, labakB2);
+
         // startovacia miestnost hry
         this.startovaciaMiestnost = terasa; 
     }

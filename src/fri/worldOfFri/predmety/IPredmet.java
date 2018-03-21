@@ -13,8 +13,8 @@ import fri.worldOfFri.hra.Hrac;
  */
 public interface IPredmet {
 
-    public String getMeno();
-    public String getPopis();
-    public void pouzi(Hrac hrac);
+    String getMeno();
+    String getPopis();
+    void pouzi(Hrac hrac);
     
 }

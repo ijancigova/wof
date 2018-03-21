@@ -15,8 +15,8 @@ public class Dvere implements IDvere {
         this.prvaMiestnost = prvaM;
         this.druhaMiestnost = druhaM;
         
-        this.prvaMiestnost.nastavDvere(this.druhaMiestnost.getNazov(),this);
-        this.druhaMiestnost.nastavDvere(this.prvaMiestnost.getNazov(),this);
+        this.prvaMiestnost.nastavDvere(this.druhaMiestnost.getNazov(), this);
+        this.druhaMiestnost.nastavDvere(this.prvaMiestnost.getNazov(), this);
     }
     
     @Override

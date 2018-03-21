@@ -2,7 +2,6 @@ package fri.worldOfFri.prostredie;
 
 
 import fri.worldOfFri.predmety.IPredmet;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -60,10 +59,11 @@ public class Miestnost {
     }
 
     public void vypisInfo() {
-        System.out.println(this.popisMiestnosti);
+        System.out.print("Teraz si v miestnosti ");
+        System.out.println(this.nazovMiestnosti + ", " + this.popisMiestnosti);
         System.out.print("Vychody: ");
         
-        for (String nazov : this.vychody.keySet()) {
+        for (String nazov : this.zoznamDveri.keySet()) {
             System.out.print(nazov + " ");
         }
         
@@ -85,12 +85,12 @@ public class Miestnost {
     }
     
     public void pridaj(IPredmet item) {
-        this.inventar.put(item.getMeno(),item);  
+        this.inventar.put(item.getMeno(), item);  
     }
 
     private void vypisPredmety() {
         System.out.print("Predmety: ");
-        for(String nazov : this.inventar.keySet()) {
+        for (String nazov : this.inventar.keySet()) {
             System.out.print(nazov + " ");          
         }
         System.out.println();

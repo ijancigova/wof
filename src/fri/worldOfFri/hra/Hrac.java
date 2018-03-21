@@ -9,7 +9,6 @@ import fri.worldOfFri.prostredie.IDvere;
 import fri.worldOfFri.predmety.IPredmet;
 import fri.worldOfFri.prostredie.MapaFakulty;
 import fri.worldOfFri.prostredie.Miestnost;
-import fri.worldOfFri.predmety.Predmet;
 import java.util.HashMap;
 
 /**
@@ -31,7 +30,6 @@ public class Hrac {
     }
 
     boolean chod(String smer) {
-        //Miestnost nova = this.aktualnaMiestnost.getVychod(smer);
         IDvere dvere = this.aktualnaMiestnost.getDverePodlaSmeru(smer);
         
         if (dvere == null) {

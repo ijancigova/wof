@@ -29,7 +29,7 @@ public class Predmet implements IPredmet {
     
     @Override
     public String getPopis() {
-            return this.popis;
+        return this.popis;
     }
     @Override
     public void pouzi(Hrac hrac) {

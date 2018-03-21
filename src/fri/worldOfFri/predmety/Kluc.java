@@ -37,7 +37,7 @@ public class Kluc implements IPredmet {
     public void pouzi(Hrac hrac) {
         Collection<IDvere> tmpZoznamDveri = hrac.getAktualnaMiestnost().dajZoznam();
         for (IDvere dvere : tmpZoznamDveri) {
-            if(this.zoznamDveri.contains(dvere)){
+            if (this.zoznamDveri.contains(dvere)) {
                 if (dvere instanceof DvereNaKluc) {
                     DvereNaKluc mojeDvere = (DvereNaKluc)dvere;
                     mojeDvere.odomkniZamkni();
@@ -46,7 +46,7 @@ public class Kluc implements IPredmet {
         }
     }
     
-    public void pridajDvere(IDvere dvere){
+    public void pridajDvere(IDvere dvere) {
         this.zoznamDveri.add(dvere);
     }
 }

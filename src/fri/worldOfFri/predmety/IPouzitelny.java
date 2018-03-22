@@ -11,9 +11,7 @@ import fri.worldOfFri.hra.Hrac;
  *
  * @author jancigova2
  */
-public interface IPredmet {
-
-    String getMeno();
-    String getPopis();
+public interface IPouzitelny {
+    void pouzi(Hrac hrac);
     
 }

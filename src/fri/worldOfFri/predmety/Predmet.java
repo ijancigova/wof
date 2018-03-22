@@ -31,8 +31,5 @@ public class Predmet implements IPredmet {
     public String getPopis() {
         return this.popis;
     }
-    @Override
-    public void pouzi(Hrac hrac) {
-        System.out.println("Tento predmet nema specialne pouzitie");
-    }    
+    
 }

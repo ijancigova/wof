@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class Kluc implements IPredmet {
+public class Kluc implements IPredmet, IPouzitelny {
     private String meno;
     private String popis;
     private ArrayList<IDvere> zoznamDveri;

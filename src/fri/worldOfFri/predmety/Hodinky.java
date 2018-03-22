@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author jancigova2
  */
-public class Hodinky implements IPredmet {
+public class Hodinky implements IPredmet, IPouzitelny {
     
     public Hodinky() {
     

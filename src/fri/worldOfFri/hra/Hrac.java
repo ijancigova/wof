@@ -5,6 +5,7 @@
  */
 package fri.worldOfFri.hra;
 
+import fri.worldOfFri.predmety.IPouzitelny;
 import fri.worldOfFri.prostredie.IDvere;
 import fri.worldOfFri.predmety.IPredmet;
 import fri.worldOfFri.prostredie.MapaFakulty;
@@ -68,13 +69,19 @@ public class Hrac {
         
     }
 
-    void pouzi(String menoPredmetu) {
-        if (this.maPredmet(menoPredmetu)) {
-            this.batoh.get(menoPredmetu).pouzi(this);       
+    void pouzi(String naPouzitie) {
+        if (this.maPredmet(naPouzitie)) {
+            if (this.batoh.get(naPouzitie) instanceof IPouzitelny) {
+                IPouzitelny pouzitelnyPredmet = (IPouzitelny)this.batoh.get(naPouzitie);
+                pouzitelnyPredmet.pouzi(this);
+            }       
         } else {
-            System.out.println("Taky predmet nemas v batohu");
-        } 
-    }
-    
-    
+            if (this.aktualnaMiestnost instanceof IPouzitelny) {
+                IPouzitelny pouzitelnaMiestnost = (IPouzitelny)this.aktualnaMiestnost;
+                pouzitelnaMiestnost.pouzi(this);
+            } else {
+                System.out.println(naPouzitie + " sa neda pouzit.");
+            } 
+        }
+    }  
 }

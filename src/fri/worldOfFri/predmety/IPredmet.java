@@ -5,8 +5,6 @@
  */
 package fri.worldOfFri.predmety;
 
-import fri.worldOfFri.hra.Hrac;
-
 /**
  *
  * @author jancigova2

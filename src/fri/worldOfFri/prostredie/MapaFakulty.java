@@ -45,6 +45,15 @@ public class MapaFakulty {
         
         terasa.spawn(new Hodinky());
         
+        Miestnost chodbaDruhePoschodie = new Miestnost("chodbaNaDruhom", "druhe poschodie");
+        Miestnost chodbaPrvePoschodie = new Miestnost("chodbaNaPrvom", "prve poschodie");
+        Vytah vytah = new Vytah();
+        DvereVytahove dvereVytahoveNaPrizemi = new DvereVytahove(vytah, chodbaA, 0);
+        dvereVytahoveNaPrizemi.odomkniZamkni();
+        vytah.nastavDvere("chodbaA", dvereVytahoveNaPrizemi); 
+        vytah.nastavDvere("chodbaPrvePoschodie", new DvereVytahove(vytah, chodbaPrvePoschodie, 1)); 
+        vytah.nastavDvere("chodbaDruhePoschodie", new DvereVytahove(vytah, chodbaDruhePoschodie, 2)); 
+        
         Dvere dvereChodbaADekanat = new Dvere(chodbaA, dekanat);
         Dvere dvereChodbaAlabakA12 = new Dvere(chodbaA, labakA12);
         Dvere dvereChodbaAbufet = new Dvere(chodbaA, bufet);

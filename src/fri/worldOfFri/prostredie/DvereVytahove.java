@@ -7,12 +7,27 @@ package fri.worldOfFri.prostredie;
 
 
 public class DvereVytahove extends Dvere {
+    
+    private boolean otvoreneDvere; 
     private int poschodie;
-
-    public DvereVytahove(Miestnost prvaM, Miestnost druhaM, int poschodie) {
-        super(prvaM, druhaM);
+            
+    public DvereVytahove(Vytah vytah, Miestnost druhaM, int poschodie) {
+        super(vytah, druhaM);
+        this.otvoreneDvere = false;
         this.poschodie = poschodie;
     }
+   
+    @Override
+    public boolean zamknute() {
+        return !this.otvoreneDvere;
+    }
     
-    public 
+    public void odomkniZamkni() {
+        this.otvoreneDvere = !this.otvoreneDvere;
+    }
+
+    public int getPoschodie() {
+        return this.poschodie;
+    }
+
 }

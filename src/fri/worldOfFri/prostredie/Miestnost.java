@@ -88,7 +88,7 @@ public class Miestnost {
         this.inventar.put(item.getMeno(), item);  
     }
 
-    private void vypisPredmety() {
+    protected void vypisPredmety() {
         System.out.print("Predmety: ");
         for (String nazov : this.inventar.keySet()) {
             System.out.print(nazov + " ");          

@@ -98,6 +98,9 @@ public class Hra {
             case "poloz":
                 this.poloz(prikaz);
                 return false;
+            case "questy":
+                this.hrac.vypisQuesty();
+                return false;
             case "preskumaj":
                 this.preskumaj(prikaz);
                 return false;
@@ -117,10 +120,10 @@ public class Hra {
      * prikazov.
      */
     private void vypisNapovedu() {
-        System.out.println("Zabludil si. Si sam. Tulas sa po fakulte.");
+        System.out.println("Zabludil/a si. Si sam. Tulas sa po fakulte.");
         System.out.println();
         System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("   chod ukonci pomoc");
+        System.out.println("   chod ukonci pomoc zober poloz questy preskumaj pouzi");
     }
 
     /**
@@ -174,7 +177,8 @@ public class Hra {
         
         if (this.hrac.getAktualnaMiestnost().maPredmet(menoPredmetu)) {
             this.hrac.zober(menoPredmetu);
-            System.out.println("Zobral si " + menoPredmetu);
+            System.out.println("Zobral/a si " + menoPredmetu);
+            this.hrac.skontrolujQuesty();
         } else {
             System.out.println("Taky predmet tu nie je");
             this.hrac.getAktualnaMiestnost().vypisInfo();
@@ -192,7 +196,7 @@ public class Hra {
         
         if (this.hrac.maPredmet(menoPredmetu)) {
             this.hrac.poloz(menoPredmetu);
-            System.out.println("Polozil si " + menoPredmetu);
+            System.out.println("Polozil/a si " + menoPredmetu);
         } else {
             System.out.println("Taky predmet nemas v batohu");
         }

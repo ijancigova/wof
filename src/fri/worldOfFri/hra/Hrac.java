@@ -10,6 +10,10 @@ import fri.worldOfFri.prostredie.IDvere;
 import fri.worldOfFri.predmety.IPredmet;
 import fri.worldOfFri.prostredie.MapaFakulty;
 import fri.worldOfFri.prostredie.Miestnost;
+import fri.worldOfFri.questy.NajdiNavleky;
+import fri.worldOfFri.questy.Quest;
+import fri.worldOfFri.questy.StavQuestu;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -20,10 +24,15 @@ public class Hrac {
 
     private Miestnost aktualnaMiestnost;
     private HashMap<String, IPredmet> batoh;
+    private ArrayList<Quest> diar;
     
     public Hrac(MapaFakulty mapa) {
         this.aktualnaMiestnost = mapa.getStartovaciaMiestnost();
         this.batoh = new HashMap<String, IPredmet>();
+        this.diar = new ArrayList<>();
+        
+        NajdiNavleky quest = new NajdiNavleky();
+        this.pridajQuest(quest);
     }
 
     public Miestnost getAktualnaMiestnost() {
@@ -56,7 +65,7 @@ public class Hrac {
         
     }
 
-    boolean maPredmet(String menoPredmetu) {
+    public boolean maPredmet(String menoPredmetu) {
         return this.batoh.containsKey(menoPredmetu);
     }
 
@@ -84,4 +93,22 @@ public class Hrac {
             } 
         }
     }  
+
+    private void pridajQuest(Quest quest) {
+        if (quest!=null && quest.getStav()==StavQuestu.NAZADANY) {
+            this.diar.add(quest);
+        }     
+    }
+    
+    void skontrolujQuesty() {
+        for (Quest quest : diar) {
+            quest.skontrolujCiSplneny(this); 
+        }
+    }
+    
+    void vypisQuesty() {
+        for (Quest quest : diar) {
+            System.out.println(quest.getPopis());
+        }
+    }
 }

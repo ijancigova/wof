@@ -7,6 +7,7 @@ package fri.worldOfFri.prostredie;
 
 import fri.worldOfFri.predmety.Hodinky;
 import fri.worldOfFri.predmety.Kluc;
+import fri.worldOfFri.predmety.Predmet;
 
 /**
  *
@@ -44,6 +45,7 @@ public class MapaFakulty {
         terasa.spawn(klucIC);
         
         terasa.spawn(new Hodinky());
+        terasa.spawn(new Predmet("navleky","modre navleky"));
         
         Miestnost chodbaDruhePoschodie = new Miestnost("chodbaNaDruhom", "druhe poschodie");
         Miestnost chodbaPrvePoschodie = new Miestnost("chodbaNaPrvom", "prve poschodie");
